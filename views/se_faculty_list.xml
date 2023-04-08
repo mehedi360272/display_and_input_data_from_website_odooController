@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="se_faculty_view_tree" model="ir.ui.view">
+            <field name="name">se_faculty_view_tree</field>
+            <field name="model">se.faculty.list</field>
+            <field name="arch" type="xml">
+                <tree >
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="email_id"/>
+                    <field name="is_urgent"/>
+                    <field name="date"/>
+                    <field name="subject"/>
+                    <field name="details"/>
+                    <field name="file" class="oe_avatar oe_left"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="se_faculty_view_form" model="ir.ui.view">
+            <field name="name">se_faculty_view_form</field>
+            <field name="model">se.faculty.list</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="email_id"/>
+                            <field name="is_urgent" widget="boolean_toggle"/>
+                            <field name="date"/>
+                            <field name="subject"/>
+                            <field name="details"/>
+                            <field name="file" class="oe_avatar oe_left"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        
+        <record id="action_faculty_information" model="ir.actions.act_window">
+            <field name="name">Faculty Information</field>
+            <field name="res_model">se.faculty.list</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create new faculty</p>
+            </field>
+            
+        </record>
+
+        <menuitem id="menu_faculty_information" name = "Faculty Info" action="action_faculty_information"/>
+    </data>
+
+</odoo>

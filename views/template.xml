@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="help_page" name="faculty">
+        <t t-call="website.layout">
+            <div class="container">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>phone</th>
+                            <th>email_id</th>
+                            <th>is_urgent</th>
+                            <th>date</th>
+                            <th>subject</th>
+                            <th>details</th>
+                            <th>file</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="my_data" t-as="pat">
+                            <tr>
+                                <td>
+                                    <t t-esc="pat.name"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.phone"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.email_id"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.is_urgent"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.date"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.subject"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.details"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.file"/>
+                                </td>
+
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <template id="add_info" name="Form">
+        <t t-call="website.layout">
+            <div class="container">
+                <form action="/help_form" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <h4 style="text-align:center;">Help form</h4>
+
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class="form-control form-label"/>
+
+                    <label for="phone">Mobile:</label>
+                    <input type="text" name="phone" class="form-control form-label"/>
+
+                    <label for="email_id">Email:</label>
+                    <input type="text" name="email_id" class="form-control form-label"/>
+
+                    <label for="is_urgent">Is urgent:</label>
+                    <input type="checkbox" name="is_urgent" class="form-check-input form-label"/> <br></br>
+
+                    <label for="date">Feedback Date:</label>
+                    <input type="date" name="date" class="form-control form-label"/>
+
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" class="form-control form-label"/>
+
+                    <label for="details">Details:</label>
+                    <input type="text" name="details" class="form-control form-label"/>
+
+                    <label for="file">File:</label>
+                    <input type="file" name="file" class="form-control form-label"/>
+
+                    <input type="submit" value="Submit" class="btn-primary d-grid gap-2 col-6 mx-auto"/> <br></br>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>
