@@ -13,7 +13,7 @@ class MyController(http.Controller):
     @http.route('/help', type='http', auth='public', website=True)
     def my_controller(self, **kw):
         my_data = request.env['se.faculty.list'].search([])
-        return request.render('se_faculty_information.help_page', {
+        return request.render('display_and_input_data_from_website_odooController.help_page', {
             'my_data': my_data,
         })
 
@@ -21,7 +21,7 @@ class MyController2(http.Controller):
     # Render Form View
     @http.route('/help/form', auth='public', website=True)
     def new_form(self, **kw):
-        return request.render('se_faculty_information.add_info', {
+        return request.render('display_and_input_data_from_website_odooController.add_info', {
         })
 
     # Redirect To  the Page
